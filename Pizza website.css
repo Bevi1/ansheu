@@ -18,7 +18,7 @@
 	--p-font: 1.1rem;
 }
 body{
-	background: var(--bg-color);
+	background-image: url(background.jpg);
 	color: var(--text-color);
 }
 header{
@@ -70,6 +70,7 @@ span{
 	color: var(--bg-color);
 	margin-right: 15px;
 	margin-left: 8px;
+	visibility: visible;
 }
 #menu-icon{
 	font-size: 32px;
@@ -93,6 +94,10 @@ section{
 	margin-bottom: 0.2rem;
 	
 
+}
+.home-text h3{
+	text-align: center;
+	margin-bottom: 0.2rem;
 }
 .home-text p{
 	font-size: var(--p-font);
@@ -266,17 +271,12 @@ header.sticky{
 	font-size: 15px;
 	letter-spacing: 1px;
 }
-.scroll-top{
-	position: fixed;
-	bottom: 2.2rem;
-	right: 2.2rem;
-}
-.scroll-top i{
-	padding: 8px;
-	font-size: 1.4rem;
-	color: #fff;
-	background: var(--main-color);
-	border-radius: 5rem;
+#menu-icon {
+	color:#ff0000;
+	font-size: 30px;
+	z-index: 10001;
+	cursor: pointer;
+	display: none;
 }
 
 @media (max-width: 1690px){
@@ -378,6 +378,7 @@ header.sticky{
 		margin-top: 150px;
 	}
 }
+
 .button {
 	width: 45px;
 	height: 45px;
@@ -435,4 +436,94 @@ header.sticky{
   
   .button:hover .shine {
 	transform: translate(-70px ,10px);
+  }
+
+
+
+  .burger {
+	position: relative;
+	width: 38px;
+	height: 28px;
+	background: transparent;
+	cursor: pointer;
+	display: block;
+	visibility: collapse;
+	
+  }
+  
+  .burger input {
+	display: none;
+  }
+  
+  .burger span {
+	display: block;
+	position: absolute;
+	height: 4px;
+	width: 100%;
+	background: red;
+	border-radius: 9px;
+	opacity: 1;
+	left: 0;
+	transform: rotate(0deg);
+	transition: .25s ease-in-out;
+  }
+  
+  .burger span:nth-of-type(1) {
+	top: 0px;
+	transform-origin:left center;
+  }
+  
+  .burger span:nth-of-type(2) {
+	top: 50%;
+	transform: translateY(-50%);
+	transform-origin:left center;
+  }
+  
+  .burger span:nth-of-type(3) {
+	top: 100%;
+	transform-origin:left center;
+	transform: translateY(-100%);
+  }
+  
+  .burger input:checked ~ span:nth-of-type(1) {
+	transform: rotate(60deg);
+	top: 0px;
+	left: 5px;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(2) {
+	width: 0%;
+	opacity: 0;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(3) {
+	transform: rotate(-60deg);
+	top: 28px;
+	left: 5px;
+  }
+
+
+  @media (max-width: 880px) {
+	.burger {
+		position: relative;
+		width: 33px;
+		height: 23px;
+		background: transparent;
+		cursor: pointer;
+		display: block;
+		visibility: visible;
+		
+		
+			
+	}
+  }
+  @media (max-width: 880px){
+	.h-icons{
+		display: flex;
+		align-items: center;
+		padding: 10px 20px;
+		background: var(--main-color);
+		border-radius: 5rem;
+		visibility: collapse;
+	}
   }
